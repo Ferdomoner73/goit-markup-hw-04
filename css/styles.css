@@ -11,6 +11,8 @@ body {
 :root {
   --heading-main-color: #2e2f42;
   --part-logo-color: #4d5ae5;
+  --hover-main-clr: #404bbf;
+  --hover-secondary-clr: #31d0aa;
   --second-part-logo-color: #f4f4fd;
   --common-text-color: #434455;
   --main-header: #ffffff;
@@ -192,7 +194,7 @@ img {
   width: 48px;
   height: 4px;
   border-radius: 2px;
-  background-color: #404bbf;
+  background-color: var(--hover-main-clr);
   margin-top: 49px;
 }
 
@@ -351,8 +353,8 @@ img {
   display: flex;
   width: 232px;
   height: 40px;
-
   margin: 8px 16px 0 16px;
+  gap: 24px;
 }
 
 .contacts-selection {
@@ -421,16 +423,25 @@ img {
   gap: 16px;
 }
 
-.foot-info-ul .item {
+.foot-info-item {
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
 }
 
-.foot-info-ul .item:focus,
-.foot-info-ul .item:hover {
-  background-color: #31d0aa;
+.foot-info-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  fill: var(--second-part-logo-color);
+}
+
+.foot-info-link:hover,
+.foot-info-link:focus {
+  background-color: var(--hover-secondary-clr);
 }
 
 .foot-info-heading {
@@ -445,44 +456,16 @@ img {
   margin-bottom: 16px;
 }
 
-.members-socials-ul .item {
-  background-color: var(--part-logo-color);
-  border-radius: 50%;
-}
-
-.members-socials-ul .item:focus,
-.members-socials-ul .item:hover {
-  background-color: #404bbf;
-}
-
 /* ICons */
 
-.members-socials-ul a {
-  display: block;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
-}
-
-.foot-info-ul a {
-  display: block;
-  height: 40px;
-  width: 40px;
-  padding: 8px;
-}
-
-.foot-info-ul .icon {
-  width: 24px;
-  height: 24px;
-  fill: var(--second-part-logo-color);
-}
-
 .icon-bcg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 264px;
   height: 112px;
   background-color: var(--second-part-logo-color);
   border-radius: 4px;
-  padding: 24px 102px;
   margin-bottom: 8px;
 }
 
@@ -490,10 +473,25 @@ img {
   display: block;
 }
 
-.members-socials-icon {
+.members-socials-item {
   width: 40px;
   height: 40px;
+}
+
+.members-socials-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   fill: var(--second-part-logo-color);
+  background-color: var(--part-logo-color);
+  border-radius: 50%;
+}
+
+.members-socials-link:hover,
+.members-socials-link:focus {
+  background-color: var(--hover-main-clr);
 }
 
 /* Companies section */
@@ -502,35 +500,28 @@ img {
   display: flex;
   gap: 24px;
 }
-
-.companies-ul .item {
+/* 
+.company-item {
   border: 1px solid #8e8f99;
   border-radius: 4px;
+  fill: #8e8f99;
+} */
+
+.company-link:hover,
+.company-link:focus {
+  border-color: var(--hover-main-clr);
+  fill: var(--hover-main-clr);
 }
 
-.companies-ul .item:hover,
-.companies-ul .item:focus {
-  border-color: #404bbf;
-  fill: #404bbf;
-}
-
-.companies-ul a {
-  display: block;
+.company-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 168px;
   height: 88px;
-  padding-top: 25px;
-}
-
-.company-icon {
-  display: block;
-  align-self: center;
   fill: #8e8f99;
-  margin: 0 auto;
-}
-
-.company-icon:focus,
-.company-icon:hover {
-  fill: #404bbf;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
 }
 
 /* Portfolio */
@@ -540,21 +531,27 @@ img {
   flex-wrap: wrap;
 }
 
-.galary-ul .item {
+.galary-item {
   margin-right: 24px;
   margin-bottom: 48px;
 }
 
-.galary-ul .item:hover {
+.galary-item-link {
+  display: block;
+  text-decoration: none;
+}
+
+.galary-item-link:hover,
+.galary-item-link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-.galary-ul .item:nth-of-type(3n) {
+.galary-item:nth-of-type(3n) {
   margin-right: 0;
 }
 
-.galary-ul .item:nth-last-child(-n + 3) {
+.galary-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
 
@@ -562,5 +559,6 @@ img {
   text-align: left;
   padding-left: 16px;
   border: 1px solid var(--footer-text);
+  border-top: none;
   border-radius: 0;
 }
